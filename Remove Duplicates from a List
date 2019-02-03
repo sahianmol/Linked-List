@@ -1,0 +1,23 @@
+public class Solution {
+    public ListNode deleteDuplicates(ListNode A) {
+        ListNode D = A;
+        ListNode B = A;
+        int a[] = new int[1000000];
+        a[A.val] = 1;
+        A = A.next;
+        while(A != null )
+        {
+            if(a[A.val] == 1)
+            {
+                B.next = A.next;
+            }
+            else
+            {
+                B = B.next;
+                a[A.val] = 1;
+            }
+            A = A.next;
+        }
+        return D;
+    }
+}
